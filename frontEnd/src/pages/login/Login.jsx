@@ -28,6 +28,7 @@ export function Login() {
   if (isAuthenticated) {
     return navigate("/home");
   }
+  
   return (
     <div className="flex justify-center items-center min-h-screen md:space-x-10 bg-theme-cultured">
       <AppLogo forBanner={true} />

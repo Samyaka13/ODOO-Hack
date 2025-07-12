@@ -17,6 +17,7 @@ export function FullPost() {
     queryKey: ["post/comment", postId],
     queryFn: async () => await axios.get(`/api/comments/post/${postId}`).then((res) => res.data),
   });
+
   const { mutate: newComment } = useMutation({
     mutationFn: async (data) => {
       await axios.post("/api/comments", { post_id: postId, content: data }).then((res) => {
@@ -28,6 +29,7 @@ export function FullPost() {
       });
     },
   });
+
   if (isFetching) {
     return (
       <div className="flex flex-col justify-center items-center w-full h-screen">
@@ -35,6 +37,7 @@ export function FullPost() {
       </div>
     );
   }
+  
   return (
     <div className="flex flex-col p-2 space-y-2 w-full">
       <ul>
